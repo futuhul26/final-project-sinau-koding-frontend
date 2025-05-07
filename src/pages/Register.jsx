@@ -1,7 +1,18 @@
 import backgroundImage from '@images/meeting-room.jpg';
+import { Eye, EyeOff } from 'lucide-react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
+  // State untuk menentukan apakah password ditampilkan atau tidak
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  // Fungsi toggle untuk mengubah nilai showPassword
+  const togglePassword = () => {
+    setShowPassword((prev) => !prev);
+    setShowConfirmPassword((prev) => !prev);
+  };
   return (
     <div
       className='flex min-h-screen items-center justify-center bg-cover bg-fixed bg-center'
@@ -47,74 +58,47 @@ const Register = () => {
             <label htmlFor='password' className='block text-sm font-medium text-gray-700'>
               Password
             </label>
+            {/* Input password dengan fitur show/hide menggunakan icon */}
             <div className='relative'>
               <input
-                type='password'
+                type={showConfirmPassword ? 'text' : 'password'}
                 id='password'
                 placeholder='Password'
                 className='mt-1 w-full rounded-lg border border-gray-300 px-4 py-2 pr-10 focus:ring-2 focus:ring-orange-400 focus:outline-none'
                 required
               />
               {/* Icon Mata */}
-              <div className='absolute inset-y-0 right-3 flex cursor-pointer items-center'>
-                {/* For the eye icon to show password */}
-                <svg
-                  xmlns='http://www.w3.org/2000/svg'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  strokeWidth={1.5}
-                  stroke='currentColor'
-                  className='size-6'
-                >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    d='M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z'
-                  />
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    d='M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z'
-                  />
-                </svg>
+              <div
+                className='absolute inset-y-0 right-3 flex cursor-pointer items-center'
+                onClick={togglePassword} // Saat diklik, ganti antara tampil dan sembunyikan password
+              >
+                {showPassword ? (
+                  <EyeOff className='h-5 w-5 text-gray-500' /> // Jika password terlihat, tampilkan icon "eye off"
+                ) : (
+                  <Eye className='h-5 w-5 text-gray-500' /> // Jika password tersembunyi, tampilkan icon "eye"
+                )}
               </div>
             </div>
           </div>
           <div className='mb-7'>
-            <label htmlFor='confrimPassword' className='block text-sm font-medium text-gray-700'>
+            <label htmlFor='confirmPassword' className='block text-sm font-medium text-gray-700'>
               Confirm Password
             </label>
             <div className='relative'>
               <input
-                type='password'
+                type={showPassword ? 'text' : 'password'}
                 id='confirmPassword'
                 placeholder='Confirm Password'
                 className='mt-1 w-full rounded-lg border border-gray-300 px-4 py-2 pr-10 focus:ring-2 focus:ring-orange-400 focus:outline-none'
                 required
               />
               {/* Icon Mata */}
-              {/* Icon Mata */}
               <div className='absolute inset-y-0 right-3 flex cursor-pointer items-center'>
-                {/* For the eye icon to show password */}
-                <svg
-                  xmlns='http://www.w3.org/2000/svg'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  strokeWidth={1.5}
-                  stroke='currentColor'
-                  className='size-6'
-                >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    d='M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z'
-                  />
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    d='M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z'
-                  />
-                </svg>
+                {showConfirmPassword ? (
+                  <EyeOff className='h-5 w-5 text-gray-500' /> // Jika password terlihat, tampilkan icon "eye off"
+                ) : (
+                  <Eye className='h-5 w-5 text-gray-500' /> // Jika password tersembunyi, tampilkan icon "eye"
+                )}
               </div>
             </div>
           </div>
