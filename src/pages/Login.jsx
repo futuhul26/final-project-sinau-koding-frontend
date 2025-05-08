@@ -2,6 +2,7 @@ import backgroundImage from '@images/meeting-room.jpg';
 import { Eye, EyeOff } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   // State untuk menentukan apakah password ditampilkan atau tidak
@@ -11,6 +12,14 @@ const Login = () => {
   const togglePassword = () => {
     setShowPassword((prev) => !prev);
   };
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate('/roomreservation');
+  };
+
   return (
     <div
       className='flex min-h-screen items-center justify-center bg-cover bg-fixed bg-center'
@@ -31,7 +40,7 @@ const Login = () => {
         </p>
 
         {/* Form */}
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className='mb-4'>
             <label htmlFor='username' className='block text-sm font-medium text-gray-700'>
               Username
