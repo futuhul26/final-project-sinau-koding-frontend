@@ -1,75 +1,17 @@
-import {
-  ArrowRight,
-  CircleDollarSign,
-  ClipboardList,
-  LayoutDashboard,
-  LogOut,
-  Search,
-  Settings,
-  User,
-} from 'lucide-react';
+import Header from '@components/Header';
+import Sidebar from '@components/Sidebar';
+import { CircleDollarSign, Search, User } from 'lucide-react';
+import { useEffect } from 'react';
 
 const RoomReservation = () => {
+  useEffect(() => {
+    document.title = 'Room Reservation';
+  }, []);
   return (
     <div className='flex min-h-screen'>
-      {/* Sidebar */}
-      <aside className='flex w-16 flex-col items-center space-y-6 border-r border-gray-200 py-6'>
-        <button
-          aria-label='User initial'
-          className='flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 text-lg font-semibold text-white'
-        >
-          E
-        </button>
-        <button
-          aria-label='Dashboard'
-          className='flex h-10 w-10 items-center justify-center rounded-full border border-gray-300 text-orange-500 transition hover:bg-orange-50'
-        >
-          <ArrowRight />
-        </button>
-        <button
-          aria-label='Grid'
-          className='flex h-10 w-10 items-center justify-center text-gray-400 transition hover:border-orange-500 hover:text-orange-500'
-        >
-          <LayoutDashboard />
-        </button>
-        <button
-          aria-label='Documents'
-          className='flex h-10 w-10 items-center justify-center text-gray-400 transition hover:border-orange-500 hover:text-orange-500'
-        >
-          <ClipboardList />
-        </button>
-        <button
-          aria-label='Settings'
-          className='flex h-10 w-10 items-center justify-center text-gray-400 transition hover:border-orange-500 hover:text-orange-500'
-        >
-          <Settings />
-        </button>
-      </aside>
-      {/* Main content */}
+      <Sidebar />
       <main className='flex-1 p-6'>
-        {/* Header */}
-        <header className='mb-6 flex items-center justify-between'>
-          <h1 className='text-lg font-semibold text-neutral-800'>Room Reservation</h1>
-          <div className='flex items-center space-x-4'>
-            <div className='flex items-center space-x-2'>
-              <img
-                src='./src/images/john-doe.jpg'
-                alt='John Doe'
-                className='h-8 w-8 rounded-full object-cover'
-                width={32}
-                height={32}
-              />
-              <div className='text-left'>
-                <p className='text-sm leading-none font-semibold text-neutral-800'>John Doe</p>
-                <p className='text-xs leading-none text-neutral-400'>User</p>
-              </div>
-            </div>
-            <button aria-label='Logout' className='text-red-500 transition hover:text-red-600'>
-              <LogOut />
-            </button>
-          </div>
-        </header>
-        {/* Search and filters */}
+        <Header />
         <form className='mb-6 flex flex-col space-y-3 sm:flex-row sm:items-center sm:space-y-0 sm:space-x-4'>
           <div className='relative w-full'>
             <Search className='absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-neutral-400' />

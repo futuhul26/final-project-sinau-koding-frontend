@@ -1,6 +1,6 @@
 import backgroundImage from '@images/meeting-room.jpg';
 import { Eye, EyeOff } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
@@ -17,18 +17,24 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate('/roomreservation');
+    navigate('/room-reservation');
   };
+
+  useEffect(() => {
+    document.title = 'Login';
+  }, []);
 
   return (
     <div
-      className='flex min-h-screen items-center justify-center bg-cover bg-fixed bg-center'
-      style={{ backgroundImage: `url(${backgroundImage})` }}
+      className='flex min-h-screen items-center justify-start bg-cover bg-center pl-16'
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+      }}
     >
-      <div className='mx-4 w-full max-w-md rounded-lg bg-white p-10 shadow-lg md:w-1/2 lg:w-1/3'>
+      <div className='relative w-full max-w-md overflow-hidden rounded-lg bg-white p-8 shadow-lg'>
         {/* Logo & Title */}
         <div className='mb-6 flex items-center justify-center'>
-          <div className='mr-2 flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 text-lg font-bold text-white'>
+          <div className='mr-2 flex h-12 w-12 items-center justify-center rounded-full bg-orange-500 text-lg font-bold text-white'>
             E
           </div>
           <h1 className='text-xl font-semibold text-orange-500'>E-Meeting</h1>
@@ -82,7 +88,7 @@ const Login = () => {
           </div>
 
           <div className='mb-4 text-right text-sm'>
-            <Link to='/resetpasswordemail' className='text-gray-500 hover:text-orange-500'>
+            <Link to='/reset-password-email' className='text-gray-500 hover:text-orange-500'>
               Forgot Password?
             </Link>
           </div>

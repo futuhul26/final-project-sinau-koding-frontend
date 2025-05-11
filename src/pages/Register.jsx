@@ -1,6 +1,6 @@
 import backgroundImage from '@images/meeting-room.jpg';
 import { Eye, EyeOff } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
@@ -13,9 +13,14 @@ const Register = () => {
     setShowPassword((prev) => !prev);
     setShowConfirmPassword((prev) => !prev);
   };
+
+  useEffect(() => {
+    document.title = 'Register';
+  }, []);
+
   return (
     <div
-      className='flex min-h-screen items-center justify-center bg-cover bg-fixed bg-center'
+      className='flex min-h-screen items-center justify-start bg-cover bg-center pl-16'
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className='mx-4 w-full max-w-md rounded-lg bg-white p-10 shadow-lg md:w-1/2 lg:w-1/3'>

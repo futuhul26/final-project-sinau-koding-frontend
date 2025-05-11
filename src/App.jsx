@@ -12,9 +12,9 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Login />} />
         <Route path='/register' element={<Register />} />
-        <Route path='/resetpasswordemail' element={<ResetPasswordEmail />} />
-        <Route path='/resetpassword' element={<ResetPassword />} />
-        <Route path='/roomreservation' element={<RoomReservation />} />
+        <Route path='/reset-password-email' element={<ResetPasswordEmail />} />
+        <Route path='/reset-password' element={<ResetPassword />} />
+        <Route path='/room-reservation' element={<RoomReservation />} />
       </Routes>
     </Router>
   );
