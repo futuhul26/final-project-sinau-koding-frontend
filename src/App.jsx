@@ -5,6 +5,7 @@ import Register from './pages/Register';
 import ResetPassword from './pages/ResetPassword';
 import ResetPasswordEmail from './pages/ResetPasswordEmail';
 import RoomReservation from './pages/RoomReservation';
+import Settings from './pages/Settings';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path='/reset-password-email' element={<ResetPasswordEmail />} />
         <Route path='/reset-password' element={<ResetPassword />} />
         <Route path='/room-reservation' element={<RoomReservation />} />
+        <Route path='/settings' element={<Settings />} />
       </Routes>
     </Router>
   );

@@ -6,7 +6,7 @@ const ResetPasswordEmail = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate('/resetpassword');
+    navigate('/reset-password');
   };
 
   return (

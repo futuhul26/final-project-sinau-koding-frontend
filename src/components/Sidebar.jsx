@@ -7,8 +7,8 @@ const Sidebar = () => {
   const toggleSidebar = () => setIsExpanded(!isExpanded);
   return (
     <aside
-      className={`flex flex-col border-r border-gray-200 py-6 transition-all duration-300 ${
-        isExpanded ? 'max-w-auto px-4' : 'w-16 items-center'
+      className={`flex flex-col overflow-hidden border-r border-gray-200 py-6 transition-all duration-300 ${
+        isExpanded ? 'w-72 px-4' : 'w-16 items-center'
       }`}
     >
       <div
@@ -44,7 +44,7 @@ const Sidebar = () => {
       <div className='my-6 w-full border-b border-gray-200' />
       <nav className='flex flex-col gap-4'>
         <SidebarItem
-          to='/room'
+          to='/room-reservation'
           icon={<LayoutDashboard size={25} />}
           label='Rooms'
           isExpanded={isExpanded}
@@ -78,7 +78,7 @@ const SidebarItem = ({ to, icon, label, isExpanded }) => (
     {({ isActive }) => (
       <>
         {isActive && (
-          <span className='absolute top-1/2 left-0 h-5 w-1 -translate-y-1/2 rounded-full bg-orange-500'></span>
+          <span className='absolute top-1/2 right-0 h-[30px] w-[3px] -translate-y-1/2 rounded-full bg-orange-500'></span>
         )}
         {icon}
         {isExpanded && <span>{label}</span>}
