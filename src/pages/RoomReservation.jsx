@@ -66,7 +66,7 @@ const RoomReservation = () => {
             </button>
             <button
               type='button'
-              className='rounded-md bg-orange-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-orange-700'
+              className='w-md rounded-lg bg-orange-500 py-2 font-semibold text-white transition duration-200 hover:bg-orange-600'
             >
               + Add New Reservation
             </button>
