@@ -1,4 +1,4 @@
-import RoomReservationHeader from '@components/RoomReservationHeader';
+import RoomReservationHeader from '@components/DashboardHeaderUser';
 import Sidebar from '@components/Sidebar';
 import { CircleDollarSign, Search, User } from 'lucide-react';
 import { useEffect } from 'react';
