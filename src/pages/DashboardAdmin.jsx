@@ -42,71 +42,75 @@ const DashboardAdmin = () => {
         {/* Filters */}
 
         <div className='space-y-6 p-3'>
-          <form className='flex w-full gap-4 rounded bg-white p-3 shadow md:grid-cols-4'>
-            <div className='flex-1'>
-              <label htmlFor='start-date' className='mb-1 block text-[16px] text-gray-500'>
-                Start Date
-              </label>
-              <div className='relative'>
-                <input
-                  type='date'
-                  id='start-date'
-                  className='w-full rounded border border-gray-200 p-2'
-                  placeholder='Select date'
-                />
-                <i className='far fa-calendar-alt pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-gray-300' />
+          <div className='mb-4 rounded bg-white p-4 shadow'>
+            <div className='flex flex-wrap items-center gap-3 md:flex-nowrap'>
+              <div className='flex-1'>
+                <label htmlFor='start-date' className='mb-1 block text-[16px] text-gray-500'>
+                  Start Date
+                </label>
+                <div className='relative'>
+                  <input
+                    type='date'
+                    id='start-date'
+                    className='w-full rounded border border-gray-200 p-2'
+                    placeholder='Select date'
+                  />
+                  <i className='far fa-calendar-alt pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-gray-300' />
+                </div>
               </div>
-            </div>
-            <div className='flex-1'>
-              <label htmlFor='end-date' className='mb-1 block text-[16px] text-gray-500'>
-                End Date
-              </label>
-              <div className='relative'>
-                <input
-                  type='date'
-                  id='end-date'
-                  className='w-full rounded border border-gray-200 p-2'
-                  placeholder='Select date'
-                />
-                <i className='far fa-calendar-alt pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-gray-300' />
+              <div className='flex-1'>
+                <label htmlFor='end-date' className='mb-1 block text-[16px] text-gray-500'>
+                  End Date
+                </label>
+                <div className='relative'>
+                  <input
+                    type='date'
+                    id='end-date'
+                    className='w-full rounded border border-gray-200 p-2'
+                    placeholder='Select date'
+                  />
+                  <i className='far fa-calendar-alt pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-gray-300' />
+                </div>
               </div>
-            </div>
-            <button
-              type='submit'
-              className='mt-6 w-30 rounded-lg bg-orange-500 py-2 font-semibold text-white transition duration-200 hover:bg-orange-600 sm:self-auto'
-            >
-              Search
-            </button>
-          </form>
-
-          {/* Summary */}
-          <div className='mb-6 grid grid-cols-4 gap-4'>
-            <div className='rounded bg-white p-4 shadow'>
-              <div className='text-gray-500'>Total Omzet</div>
-              <div className='text-[36px] font-bold'>Rp 8.000.000</div>
-            </div>
-            <div className='rounded bg-white p-4 shadow'>
-              <div className='text-gray-500'>Total Reservation</div>
-              <div className='text-[36px] font-bold'>100</div>
-            </div>
-            <div className='rounded bg-white p-4 shadow'>
-              <div className='text-gray-500'>Total Visitor</div>
-              <div className='text-[36px] font-bold'>500</div>
-            </div>
-            <div className='rounded bg-white p-4 shadow'>
-              <div className='text-gray-500'>Total Rooms</div>
-              <div className='text-[36px] font-bold'>12</div>
+              <button
+                type='submit'
+                className='mt-6 w-30 rounded-lg bg-orange-500 py-2 font-semibold text-white transition duration-200 hover:bg-orange-600 sm:self-auto'
+              >
+                Search
+              </button>
             </div>
           </div>
 
-          {/* Room Cards */}
-          <div className='grid grid-cols-4 gap-4'>
-            {Array(3)
-              .fill(rooms)
-              .flat()
-              .map((room, index) => (
-                <RoomCard key={index} {...room} />
-              ))}
+          {/* Summary */}
+          <div className='h-185 overflow-y-auto p-4'>
+            <div className='mb-6 grid grid-cols-4 gap-4'>
+              <div className='rounded bg-white p-4 shadow'>
+                <div className='text-gray-500'>Total Omzet</div>
+                <div className='text-[36px] font-bold'>Rp 8.000.000</div>
+              </div>
+              <div className='rounded bg-white p-4 shadow'>
+                <div className='text-gray-500'>Total Reservation</div>
+                <div className='text-[36px] font-bold'>100</div>
+              </div>
+              <div className='rounded bg-white p-4 shadow'>
+                <div className='text-gray-500'>Total Visitor</div>
+                <div className='text-[36px] font-bold'>500</div>
+              </div>
+              <div className='rounded bg-white p-4 shadow'>
+                <div className='text-gray-500'>Total Rooms</div>
+                <div className='text-[36px] font-bold'>12</div>
+              </div>
+            </div>
+
+            {/* Room Cards */}
+            <div className='grid grid-cols-4 gap-4'>
+              {Array(3)
+                .fill(rooms)
+                .flat()
+                .map((room, index) => (
+                  <RoomCard key={index} {...room} />
+                ))}
+            </div>
           </div>
         </div>
       </main>

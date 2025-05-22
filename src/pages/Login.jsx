@@ -17,7 +17,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate('/room-reservation');
+    navigate('/dashboard');
   };
 
   useEffect(() => {

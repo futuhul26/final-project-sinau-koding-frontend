@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { CircleDollarSign, Edit, Search, Trash, User } from 'lucide-react';
+import { CircleDollarSign, Edit, Trash, User } from 'lucide-react';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 
@@ -167,8 +167,7 @@ const RoomsCard = () => {
           <option value='11-50'>11-50</option>
           <option value='51-100'>51-100</option>
         </select>
-        <button className='flex items-center gap-2 rounded-md bg-orange-500 px-4 py-2 text-white'>
-          <Search />
+        <button className='rounded border border-orange-500 px-4 py-2 text-sm text-orange-500 hover:bg-orange-50'>
           Search
         </button>
         <button
