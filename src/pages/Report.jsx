@@ -1,9 +1,9 @@
-import CustomToast from '@components/CustomToast';
 import ReportHeader from '@components/ReportHeader';
 import Sidebar from '@components/Sidebar';
-import { AnimatePresence,motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Edit } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 
 const Report = () => {
   const initialData = Array(100)
@@ -39,8 +39,6 @@ const Report = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [isSlideOpen, setIsSlideOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
-  const [showToast, setShowToast] = useState(false);
-  const [toastMsg, setToastMsg] = useState('');
   const [modalType, setModalType] = useState(null); // "paid" | "cancel"
 
   const statusColors = {
@@ -88,13 +86,13 @@ const Report = () => {
 
   const handleConfirmAction = () => {
     if (modalType === 'paid') {
-      setToastMsg('Reservation marked as paid.');
+      toast.success('Reservation marked as paid.');
     } else if (modalType === 'cancel') {
-      setToastMsg('Reservation has been cancelled.');
+      toast.success('Reservation has been cancelled.');
     }
-    setShowToast(true);
+
     setModalType(null);
-    setIsSlideOpen(false); // Tutup slide bar
+    setIsSlideOpen(false);
   };
 
   return (
@@ -248,7 +246,7 @@ const Report = () => {
           {isSlideOpen && (
             <div
               className='fixed inset-0 z-30 bg-black opacity-25'
-              onClick={() => setIsSidebarOpen(false)}
+              onClick={() => setIsSlideOpen(false)}
             ></div>
           )}
 
@@ -383,11 +381,6 @@ const Report = () => {
               </motion.div>
             )}
           </AnimatePresence>
-
-          {/* Toast */}
-          {showToast && (
-            <CustomToast message={toastMsg} type='success' onClose={() => setShowToast(false)} />
-          )}
         </main>
       </div>
     </>

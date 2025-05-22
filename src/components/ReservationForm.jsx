@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft } from 'lucide-react';
+import toast from 'react-hot-toast';
 
 const AddReservationForm = ({ isOpen, onClose, onSubmit, rooms = [], snacks = [] }) => {
   const [formData, setFormData] = useState({
@@ -51,7 +52,7 @@ const AddReservationForm = ({ isOpen, onClose, onSubmit, rooms = [], snacks = []
     const snackData = snacks.find((s) => s.name === formData.snack);
 
     const roomPrice = roomData?.price || 0;
-    const snackPrice = formData.addSnack && snackData ? snackData.price : 0;
+    const snackPrice = formData.addSnack && snackData ? snackData.price * formData.participants : 0;
     const total = roomPrice + snackPrice;
 
     return { roomData, snackData, roomPrice, snackPrice, total };
@@ -79,6 +80,7 @@ const AddReservationForm = ({ isOpen, onClose, onSubmit, rooms = [], snacks = []
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit(formData);
+    toast.success('New Reservation Successfully added');
     onClose();
   };
 
@@ -271,7 +273,7 @@ const AddReservationForm = ({ isOpen, onClose, onSubmit, rooms = [], snacks = []
             <div className='space-y-5 text-sm text-gray-700'>
               {/* Detail Ruangan */}
               <div>
-                <h2 className='mb-2 font-semibold text-gray-700'>📌 Detail Ruangan</h2>
+                <h2 className='mb-2 font-semibold text-gray-700'> Detail Ruangan</h2>
                 <table className='w-full table-fixed'>
                   <tbody className='divide-y divide-gray-200'>
                     <tr>
@@ -298,7 +300,7 @@ const AddReservationForm = ({ isOpen, onClose, onSubmit, rooms = [], snacks = []
 
               {/* Data Pemesan */}
               <div>
-                <h2 className='mb-2 font-semibold text-gray-700'>👤 Data Pemesan</h2>
+                <h2 className='mb-2 font-semibold text-gray-700'>Data Pemesan</h2>
                 <table className='w-full table-fixed'>
                   <tbody className='divide-y divide-gray-200'>
                     <tr>
@@ -356,7 +358,7 @@ const AddReservationForm = ({ isOpen, onClose, onSubmit, rooms = [], snacks = []
                 onClick={handleSubmit}
                 className='w-full rounded-lg bg-green-600 py-3 font-semibold text-white transition hover:bg-green-700'
               >
-                ✅ Konfirmasi Reservasi
+                Konfirmasi Reservasi
               </button>
             </div>
           </div>

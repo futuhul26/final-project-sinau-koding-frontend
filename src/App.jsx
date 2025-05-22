@@ -1,3 +1,4 @@
+import { Toaster } from 'react-hot-toast';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import DashboardAdmin from './pages/DashboardAdmin';
@@ -13,6 +14,8 @@ import Settings from './pages/Settings';
 const App = () => {
   return (
     <Router>
+      <Toaster position='top-right' reverseOrder={false} />
+
       <Routes>
         <Route path='/' element={<Login />} />
         <Route path='/calendar' element={<ReservationSchedule />} />

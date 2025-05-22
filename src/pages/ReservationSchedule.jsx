@@ -181,8 +181,10 @@ const ReservationSchedule = () => {
               onSubmit={handleAddReservation}
               rooms={rooms}
               snacks={[
-                { name: 'Snack A', price: 10000 },
-                { name: 'Snack B', price: 10000 },
+                { name: 'Coffee Break Pacakge 1 - Rp 20.000/people', price: 20000 },
+                { name: 'Coffee Break Pacakge 2 - Rp 50.000/people', price: 50000 },
+                { name: 'Lunch Package 1 - Rp 20.000/people', price: 20000 },
+                { name: 'Lunch Package 2 - Rp 50.000/people', price: 50000 },
               ]}
             />
           </motion.div>
