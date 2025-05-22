@@ -1,4 +1,12 @@
-import { ArrowLeft, ArrowRight, ClipboardList, LayoutDashboard, Settings } from 'lucide-react';
+import {
+  ArrowLeft,
+  ArrowRight,
+  Building,
+  Calendar,
+  ClipboardList,
+  LayoutDashboard,
+  Settings,
+} from 'lucide-react';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
@@ -44,15 +52,27 @@ const Sidebar = () => {
       <div className='my-6 w-full border-b border-gray-200' />
       <nav className='flex flex-col gap-4'>
         <SidebarItem
-          to='/room-reservation'
+          to='/dashboard'
           icon={<LayoutDashboard size={25} />}
+          label='Dashboard'
+          isExpanded={isExpanded}
+        />
+        <SidebarItem
+          to='/calendar'
+          icon={<Calendar size={25} />}
+          label='Reservation Schedule'
+          isExpanded={isExpanded}
+        />
+        <SidebarItem
+          to='/room-reservation'
+          icon={<Building size={25} />}
           label='Rooms'
           isExpanded={isExpanded}
         />
         <SidebarItem
-          to='/history'
+          to='/report'
           icon={<ClipboardList size={25} />}
-          label='History'
+          label='Report'
           isExpanded={isExpanded}
         />
         <SidebarItem

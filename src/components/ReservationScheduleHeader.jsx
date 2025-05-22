@@ -1,7 +1,7 @@
 import { LogOut } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-const SettingsHeader = () => {
+const ReservationScheduleHeader = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -9,7 +9,7 @@ const SettingsHeader = () => {
   };
   return (
     <header className='mb-6 flex items-center justify-between'>
-      <h1 className='text-[28px] font-semibold text-neutral-800'>Settings</h1>
+      <h1 className='text-[28px] font-semibold text-neutral-800'>Reservation Schedule</h1>
       <div className='flex items-center space-x-4'>
         <div className='flex items-center space-x-2'>
           <img
@@ -36,4 +36,4 @@ const SettingsHeader = () => {
   );
 };
 
-export default SettingsHeader;
+export default ReservationScheduleHeader;
