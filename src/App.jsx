@@ -8,6 +8,7 @@ import Report from './pages/Report';
 import ReservationSchedule from './pages/ReservationSchedule';
 import ResetPassword from './pages/ResetPassword';
 import ResetPasswordEmail from './pages/ResetPasswordEmail';
+import RoomList from './pages/RoomList';
 import RoomReservation from './pages/RoomReservation';
 import Settings from './pages/Settings';
 
@@ -24,6 +25,7 @@ const App = () => {
         <Route path='/report' element={<Report />} />
         <Route path='/reset-password-email' element={<ResetPasswordEmail />} />
         <Route path='/reset-password' element={<ResetPassword />} />
+        <Route path='/room-list' element={<RoomList />} />
         <Route path='/room-reservation' element={<RoomReservation />} />
         <Route path='/settings' element={<Settings />} />
       </Routes>

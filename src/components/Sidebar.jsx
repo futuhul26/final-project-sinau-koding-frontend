@@ -64,7 +64,7 @@ const Sidebar = () => {
           isExpanded={isExpanded}
         />
         <SidebarItem
-          to='/room-reservation'
+          to='/room-list'
           icon={<Building size={25} />}
           label='Rooms'
           isExpanded={isExpanded}
